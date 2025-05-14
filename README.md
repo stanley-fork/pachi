@@ -11,12 +11,12 @@ within this framework.
 ## Engine
 
 The default engine plays by Japanese or Chinese rules and should be about
-7d KGS strength on 9x9. On 19x19 it can hold a solid KGS 2d rank on modest
+7d KGS strength on 9x9. On 19x19 it can hold a KGS 3d rank on modest
 hardware (Raspberry Pi, dcnn) or faster machine (e.g. six-way Intel i7)
 without dcnn.
 
 When using a large cluster (64 machines, 20 cores each), it maintains
-KGS 3d to 4d and has won e.g. a 7-stone handicap game against Zhou Junxun 9p.
+KGS 4d and has won e.g. a 7-stone handicap game against Zhou Junxun 9p.
 
 By default, Pachi uses the UCT engine that combines Monte Carlo approach
 with tree search; UCB1AMAF tree policy using the RAVE method is used for
@@ -25,16 +25,10 @@ tactical checks is used for the semi-random Monte Carlo playouts. MM patterns
 and deep learning are used to guide tree search.
 
 
-## Binary Releases
+## Install
 
 **Linux / Windows**: Download [binary release](https://github.com/pasky/pachi/releases)
 and follow instructions inside.
-
-**Ubuntu**: Install 'pachi-go' package from [ppa](https://launchpad.net/~lemonsqueeze/+archive/ubuntu/pachi):
-
-    sudo add-apt-repository ppa:lemonsqueeze/pachi
-    sudo apt-get update
-    sudo apt-get install pachi-go
 
 For build instructions see [INSTALL](INSTALL.md).
 
@@ -43,7 +37,7 @@ For build instructions see [INSTALL](INSTALL.md).
 ## Setup
 
 The `pachi` binary program is a GTP client. Use it with your favorite
-Go program interface (e.g. [gogui][1], [sabaki][2], [lizzie](#Lizzie)),
+Go program interface (e.g. [GoGui][1], [Sabaki][2], [Lizzie](#Lizzie)),
 or use [kgsGtp][3] to connect it to KGS.
 
 > DO NOT make the GTP interface accessible directly to untrusted users
@@ -140,7 +134,7 @@ You want joseki fixes working if playing ranked games
 For now, there is no comprehensive documentation of engine options, but
 you can get a pretty good idea by looking at the uct_setoption() function
 in [uct/uct.c](uct/uct.c) - you will find the list of UCT engine options
-there, each with a description. At any rate, usually the four options above
+there, each with a description. At any rate, usually the options above
 are the only ones you really want to tweak.
 
 
